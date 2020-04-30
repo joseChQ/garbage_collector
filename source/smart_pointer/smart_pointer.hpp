@@ -82,6 +82,11 @@ class SmartPointer {
     return *this;
   }
   SmartPointer(const SmartPointer &other) {
+    if(other.resource_!=nullptr)
+    {
+      table[other.resource_]++;
+      resource_ = other.resource_;
+    }
     //std::cout<<"copia"<<std::endl;
   }
 
